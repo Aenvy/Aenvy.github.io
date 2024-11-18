@@ -224,17 +224,22 @@
       <div class="flex_center">
         <fieldset>
           <legend class="introduction">Leave a Recommendation</legend>          
-          <input type="text" placeholder="Name (Optional)"> <br/>
-          <textarea id="new_recommendation" cols="500" rows="10" placeholder="Message"></textarea>
+          
+          <!-- Input for name (optional) -->
+          <input type="text" id="name" placeholder="Your name (optional)"> <br/>
+          
+          <!-- Textarea for recommendation message -->
+          <textarea id="new_recommendation" cols="500" rows="10" placeholder="Your message"></textarea>
+          
           <div class="flex_center">
-            <!-- Button to trigger addRecommendation function -->
-            <button id="recommend_btn" onclick="addRecommendation()">Submit</button>
+            <!-- Button to trigger form submission -->
+            <button id="recommend_btn" type="submit">Submit Recommendation</button>
           </div>
         </fieldset>
       </div>
     </section>
     
-
+    <!-- Icon Button -->
     <div class="iconbutton">
       <a href="#home">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" width="63px">
@@ -242,11 +247,12 @@
         </svg>
       </a>
     </div>
-
+    
+    <!-- Popup to show after submission -->
     <div class="popup" id="popup" class="flex_center">
       <img src="html_finalprojimages/checkmark--outline.svg"/>
       <h3>Thanks for the glowing recommendation! You just earned a spot in my 'Hall of Fame'!</h3>
       <button onclick="showPopup(false)">Ok</button>
-    </div>
+    </div>    
   </body>
 </html>

@@ -1,5 +1,6 @@
 const express = require('express');
 const admin = require('firebase-admin');
+const cors = require('cors');
 
 const app = express();
 const port = 3000;
@@ -12,12 +13,18 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
-// Middleware to parse JSON
+// Middleware to parse JSON and handle CORS
 app.use(express.json());
+app.use(cors());  // Allow all origins
 
 // Endpoint to add a new recommendation
 app.post('/addRecommendation', async (req, res) => {
   const { name, message } = req.body;
+
+  // Input validation
+  if (!message || message.trim() === "") {
+    return res.status(400).send({ success: false, error: "Message is required" });
+  }
 
   try {
     // Save recommendation in Firestore
